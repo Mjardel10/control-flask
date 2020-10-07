@@ -1,0 +1,133 @@
+{% extends 'layout.html' %} 
+
+
+
+
+
+{% block body %}
+
+{%with messages = get_flashed_messages(with_categories=true)%} {%if messages%} {% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissable" role="alert">
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+
+                <span aria-hidden="true">&times;</span>
+
+            </button> {{message}}
+
+
+</div>
+
+{% endfor %} {%endif%} {%endwith%} 
+
+
+
+
+
+
+
+<a href="{{url_for('grafica')}}" class="grafica-button"> Gráfica</a>
+
+
+
+<!-- Modal Section -->
+
+<section>
+
+    <div class="header-section">
+        <h2 class="subtitulo"> Estudiantes Registrados </h2>
+        <a href="{{url_for('agregar_alumnos')}}" class="agregar-button">Agregar</a>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Edad</th>
+                <th>Correo</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% if estudiantes is not none%} {% for est in estudiantes %}
+            <tr>
+                <td>{{est['id']}}</td>
+                <td>{{est['nombres']}}</td>
+                <td>{{est['apellidos']}}</td>
+                <td>{{est['edad']}}</td>
+                <td>{{est['correo']}}</td>
+                <td>{{est['curso']}}</td>
+            </tr>
+
+            {% endfor %} 
+            
+            {% else %}
+                <tr>
+                    <td colspan="6"> No hay datos Ingresados</td>
+                <tr>
+
+            {% endif %}
+            
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+<section>
+
+    <div class="header-section">
+        <h2 class="subtitulo"> Cursos Registrados </h2>
+        <a href="{{url_for('agregar_curso')}}" class="agregar-button">Agregar</a>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Curso</th>
+                <th>Horario</th>
+                <th>Fecha de Inicio</th>
+                <th>Lugar</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+            {% if cursos is not none %} {% for curso in cursos %}
+            <tr>
+                <td>{{curso['id']}}</td>
+                <td>{{curso['nombre']}}</td>
+                <td>{{curso['horario']}}</td>
+                <td>{{curso['fecha_i']}}</td>
+                <td>{{curso['lugar']}}</td>
+                <td>{{curso['descripcion']}}</td>
+            </tr>
+
+            {% endfor %} 
+            {% else %}
+                <tr>
+                    <td colspan="6"> No hay datos Ingresados</td>
+                <tr>
+            {% endif %}
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+{% endblock body %}

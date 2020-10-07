@@ -1,0 +1,91 @@
+{% extends 'layout.html' %} {% block body %}
+
+
+{%with messages = get_flashed_messages(with_categories=true)%}
+
+    {%if messages%}
+
+    
+
+    {% for category, message in messages %}
+      
+        <div class="alert alert-{{category}} alert-dismissable" role="alert">
+
+             <button type="button" class="close" data-dismiss="alert" aria-label ="close">
+
+                <span aria-hidden="true">&times;</span>
+
+            </button>
+            {{message}}
+
+
+        </div>  
+
+    {% endfor %}
+
+    
+    
+    {%endif%}
+{%endwith%}
+
+
+
+<h2 class="subtitulo">Ingrese Datos del Alumno</h2>
+
+
+<form class="form" action="{{url_for('guardar_alumno')}}" method="POST">
+
+    <div class="container-campos">
+        <div class="input-campo">
+            <label for="#nombres" class="label">Nombres</label>
+            <input type="text" name="Nombres" id="nombres" class="campo">
+        </div>
+
+        <div class="input-campo">
+            <label for="#apellidos" class="label">Apellidos</label>
+            <input type="text" name="Apellidos" id="apellidos" class="campo">
+        </div>
+    </div>
+
+
+
+
+    <div class="input-campo">
+        <label for="#Fecha_N" class="label">Fecha de Nacimiento</label >
+        <input type="date" name="Fecha_Nacimiento" id="Fecha_N" class="campo">
+    </div>
+
+    <div class="input-campo">
+        <label for="#direccion" class="label">Dirección</label>
+        <input type="text" name="Direccion" id="direccion" class="campo">
+    </div>
+
+    
+
+    
+        <div class="input-campo">
+            <label for="#correo" class="label">Correo</label>
+            <input type="email" name="Correo" id="correo" class="campo">
+        </div>
+
+         <div class="input-campo">
+            <label for="#horario" class="label">Seleccione un Curso</label>
+            <select name="Curso" class="campo" id="Curso">
+                <option value="0">----------</option> 
+                {% if cursos|length > 0  %}
+                    {% for curso in cursos %}
+                    <option value={{curso['id']}}>{{curso['nombre']}} &nbsp;&nbsp;- &nbsp;&nbsp;Horario: {{curso['horario']}} </option>
+                    {% endfor %}
+                {% endif %}
+                 
+            </select>
+        </div>
+   
+
+
+    <input type="submit" value="Registrar" class="boton">
+
+</form>
+{% endblock body %} {% block title %}
+<title>Agregar Datos</title>
+{% endblock title %}

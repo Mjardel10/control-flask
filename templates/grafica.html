@@ -1,0 +1,63 @@
+{% extends 'layout.html' %} {%with messages = get_flashed_messages(with_categories=true)%} {%if messages%} {% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissable" role="alert">
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+
+                <span aria-hidden="true">&times;</span>
+
+            </button> {{message}}
+
+
+</div>
+
+{% endfor %} {%endif%} {%endwith%} {% block body %}
+
+<div class="chart-container canvas" style="position: relative; height:40%; width:80%">
+    <canvas id="myChart"></canvas>
+</div>
+
+{{adsf}}
+
+{% endblock body %} {% block script %}
+<script>
+
+    
+    new Chart(document.getElementById("myChart"), {
+        
+        
+        type: 'pie',
+        data: {
+            labels:[{% for item in nombres %}
+             "{{item}}",
+            {% endfor %}],
+            datasets: [{
+                label: "Alumnos",
+                data: {{valores}},                
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Total de estudiantes registrados:'+{{total}}
+            },
+            plugins: {
+            colorschemes: {
+                scheme: 'brewer.SetThree12'
+                }
+            }
+
+
+           
+        }
+    });
+
+    
+
+</script>
+
+{% endblock script %} {% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+{% endblock head %}

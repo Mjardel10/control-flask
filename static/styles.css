@@ -1,0 +1,316 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+/* header */
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+
+.main-head {
+    background: #131c27;
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    flex: 3 1 50rem;
+    padding-left: 40px;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-decoration: none;
+    color: #ffff;
+}
+
+.grafica-button {
+    text-decoration: none;
+    background: gray;
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 10px;
+    width: 80px;
+    text-align: center;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #ffff;
+}
+
+.grafica-button:hover {
+    text-decoration: none;
+    background: #34495E;
+    color: #ffff;
+}
+
+
+/* SECTION BLOG */
+
+
+/* FORM */
+
+
+/* Start form */
+
+.section-formulario {
+    width: 700px;
+    margin: 0 auto;
+}
+
+h2.subtitulo {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.form {
+    margin: 10px auto;
+    width: 550px;
+    color: steelblue;
+}
+
+.container-campos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-campos div {
+    width: 48%;
+}
+
+.input-campo {
+    padding: 10px;
+    font-size: 1.6rem;
+    /* background: gray; */
+    margin-bottom: 10px;
+}
+
+.label {
+    /*  */
+    display: block;
+    width: 200px;
+    font-size: 1.6rem;
+    padding: 5px;
+    color: #566573;
+}
+
+.campo,
+#descripcion {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    width: 100%;
+    outline: none;
+}
+
+.campo {
+    height: 35px;
+    border: none;
+    border-bottom: #34495E 2px solid;
+    padding: 0 10px;
+}
+
+select {
+    background: #ffff;
+}
+
+#descripcion {
+    resize: none;
+    border: #34495E 2px solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.campo:focus {
+    outline: none;
+    border-radius: 5px;
+    border: #34495E 2px solid;
+}
+
+.boton {
+    background: white;
+    border: #EB984E 2px solid;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    font-size: 2em;
+    display: block;
+    margin: 0 auto;
+}
+
+.boton:hover {
+    background: #EB984E;
+    color: #ffff;
+    cursor: pointer;
+}
+
+
+/* tablas */
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.agregar-button {
+    display: block;
+    background-color: greenyellow;
+    width: 75px;
+    text-align: center;
+    height: 30px;
+    padding: 3px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    align-self: flex-end;
+    text-decoration: none;
+    border: greenyellow 1px solid;
+}
+
+.agregar-button:hover {
+    text-decoration: none;
+    background: white;
+}
+
+table {
+    border: 1px solid #ccc;
+    width: 80%;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+    margin-top: 35px;
+    margin-bottom: 50px;
+}
+
+table tr {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+table tr:nth-child(even) {
+    background-color: #666;
+    color: white;
+}
+
+table td,
+table th {
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    text-transform: uppercase;
+    font-family: 18px;
+    letter-spacing: 1px;
+}
+
+.canvas {
+    margin: 0 auto;
+}
+
+
+/* ////////////////////////////////////////////// */
+
+@media screen and (max-width:700px) {
+    .section-formulario {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .form {
+        margin: 10px auto;
+        width: 100%;
+        color: steelblue;
+    }
+}
+
+
+/*//////////////////////////////////////////////*/
+
+@media screen and (max-width: 500px) {
+    table {
+        border: 0;
+    }
+    table tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+    table td {
+        display: block;
+        text-align: right;
+        font-size: 16px;
+        border-bottom: 1px dotted #ccc;
+    }
+    table td:last-child {
+        border-bottom: 0;
+    }
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    table thead {
+        display: none;
+    }
+    .container-campos {
+        display: flex;
+        flex-direction: column;
+    }
+    .container-campos div {
+        width: 100%;
+    }
+    .input-campo {
+        padding: 10px;
+        font-size: 1.6rem;
+        /* background: gray; */
+        margin-bottom: 10px;
+    }
+    h2.subtitulo {
+        font-size: 25px;
+    }
+    .main-nav {
+        width: 100%;
+    }
+    .main-nav a {
+        display: block;
+        text-align: center;
+    }
+    .header-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 20px auto;
+    }
+    .header-section h2 {
+        margin: 0;
+        display: block;
+        /* width: 200px; */
+        font-size: 20px;
+        text-align: left;
+    }
+    .header-section a {
+        display: block;
+        align-self: center;
+    }
+}

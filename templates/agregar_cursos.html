@@ -1,0 +1,100 @@
+{% extends 'layout.html' %} {% block body %} 
+
+
+
+
+{%with messages = get_flashed_messages(with_categories=true)%}
+
+    {%if messages%}
+
+    
+
+    {% for category, message in messages %}
+      
+        <div class="alert alert-{{category}} alert-dismissable" role="alert">
+
+             <button type="button" class="close" data-dismiss="alert" aria-label ="close">
+
+                <span aria-hidden="true">&times;</span>
+
+            </button>
+            {{message}}
+
+
+        </div>  
+
+    {% endfor %}
+
+    
+    
+    {%endif%}
+{%endwith%}
+
+
+<h2 class="subtitulo" >Ingrese Datos del Curso</h2>
+
+
+<form class="form" action="{{url_for('guardar_curso')}}" method="POST">
+
+    <div class="container-campos">
+        <div class="input-campo">
+            <label for="#curso" class="label">Nombre del Curso</label>
+            <input type="text" name="Curso" id="curso" class="campo">
+        </div>
+
+        <div class="input-campo">
+            <label for="#horario" class="label">Horario</label>
+            <select name="Horario" class="campo" id="horario">
+                <option value="7:00 am - 8:00 am">7:00 am - 8:00 am</option> 
+                <option value="8:00 am - 9:00 am">8:00 am - 9:00 am</option> 
+                <option value="9:00 am - 10:00 am">9:00 am - 10:00 am</option>
+                <option value="10:00 am - 11:00 am">10:00 am - 11:00 am</option> 
+                <option value="11:00 am - 12:00 pm">11:00 am - 12:00 pm</option> 
+                <option value="12:00 pm - 01:00 pm">12:00 pm - 01:00 pm</option> 
+            </select>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="container-campos">
+        <div class="input-campo">
+            <label for="#Fecha_I" class="label">Fecha de Inicio</label >
+            <input type="date" name="Fecha_Inicio" id="Fecha_I" class="campo">
+        </div>
+
+        <div class="input-campo">
+            <label for="#lugar" class="label">Lugar</label>
+            <select name="Lugar" class="campo" id="lugar">
+                <option value="Aula 1">Aula 1</option> 
+                <option value="Aula 2">Aula 2</option> 
+                <option value="Aula 3">Aula 3</option>
+                <option value="Aula 4">Aula 4</option> 
+                <option value="Salón 1">Salón 1</option> 
+                <option value="Salón 2">Salón 2</option> 
+            </select>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="input-campo">
+        <label for="#descripcion" class="label">Descripción</label>
+        <textarea name="Descripcion" id="descripcion" cols="30" rows="5"></textarea>
+    </div>
+
+
+    <input type="submit" value="Registrar" class="boton">
+
+</form>
+
+
+{% endblock body %} {% block title %}
+<title>Agregar Datos</title>
+{% endblock title %}
